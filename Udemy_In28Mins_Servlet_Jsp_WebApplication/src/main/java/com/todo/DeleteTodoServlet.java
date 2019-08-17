@@ -12,8 +12,8 @@ import com.todo.TodoService;
 /**
  * Servlet implementation class TodoServlet
  */
-@WebServlet(description = "To handle todo requests and responses in application", urlPatterns = { "/todo.do" })
-public class TodoServlet extends HttpServlet {
+@WebServlet(description = "To handle delete todo requests and responses in application", urlPatterns = { "/deleteTodo.do" })
+public class DeleteTodoServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -22,7 +22,7 @@ public class TodoServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public TodoServlet() {
+	public DeleteTodoServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -31,13 +31,7 @@ public class TodoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("todos",todoService.getTodoList());
-		request.getRequestDispatcher("/WEB-INF/views/todo.jsp").forward(request, response);
-	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String newTodo = request.getParameter("todo");
-		todoService.addTodo(new Todo(newTodo));
+		todoService.deleteTodo(new Todo(request.getParameter("todo")));
 		response.sendRedirect("/todo.do");
 	}
 

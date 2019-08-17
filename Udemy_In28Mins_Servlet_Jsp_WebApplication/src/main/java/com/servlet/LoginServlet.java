@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.todo.TodoService;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -15,7 +17,7 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private UserValidationService service = new UserValidationService();
-
+	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -46,7 +48,10 @@ public class LoginServlet extends HttpServlet {
 		request.setAttribute("password", request.getParameter("password"));
 
 		if(isUserValid){
-			request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);
+			/*request.setAttribute("todos",todoService.getTodoList());
+			request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);*/
+			request.getSession().setAttribute("name", name);
+			response.sendRedirect("/todo.do");
 		}else {
 			request.setAttribute("errorMessage", "Invalid Credentials!");
 			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
