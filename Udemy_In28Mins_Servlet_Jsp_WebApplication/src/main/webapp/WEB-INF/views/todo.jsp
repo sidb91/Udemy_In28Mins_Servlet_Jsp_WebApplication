@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>WELCOME</title>
+<title>TODO</title>
 </head>
 <body>
-<p>WELCOME ${name}</p>
+<p>The list of Todos : </p>
 <p>${todos}
 </body>
 </html>
