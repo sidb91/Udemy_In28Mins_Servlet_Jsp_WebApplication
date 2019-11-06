@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login Page</title>
-<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<title>Todos</title>
+<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+	rel="stylesheet">
 
 <style>
 .footer {
@@ -17,28 +18,40 @@
 </head>
 
 <body>
+
 	<nav class="navbar navbar-default">
+
 		<a href="/" class="navbar-brand">Brand</a>
+
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="#">Home</a></li>
-			<li><a href="/todo.do">Todos</a></li>
+			<li><a href="/list-todo.do">Todos</a></li>
 			<li><a href="http://www.in28minutes.com">In28Minutes</a></li>
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="/login.do">Login</a></li>
+			<li><a href="/logout.do">Logout</a></li>
 		</ul>
+
 	</nav>
 
 	<div class="container">
-		<div id="formContainer">
-			<form action="/login.do" method="post">
-				<label for="name">Username : <input type="text" id="name" name="name"/></label><br/>
-				<label for="password">Password : <input type="password" id="password" name="password"/></label>
-				<input type="submit" value="Login"/>
-				<div style="color:red;"><p>${errorMessage}</p></div>
-			</form>
-		</div>
+		<H1>Welcome ${name}</H1>
+		<p>Your To dos are:</p>
+		<ol>
+			<c:forEach items="${todos}" var="todo">
+				<li>${todo.name}&nbsp; &nbsp;${todo.category}&nbsp; &nbsp;<a href="/deleteTodo.do?todo=${todo.name}&category=${todo.category}">Delete</a></li>
+			</c:forEach>
+		</ol>
+		
+		<a href="/add-todo.do">Add New Todo</a>
+		
+		<p><font color="red">${errorMessage}</font></p>
+					
+		<!-- <form action="/add-todo.do" method="post">
+			Add Your To Do <input type="text" name="todo" /><input type="submit" name="submit"
+				value="Add" />
+		</form> -->
 	</div>
 
 	<footer class="footer">

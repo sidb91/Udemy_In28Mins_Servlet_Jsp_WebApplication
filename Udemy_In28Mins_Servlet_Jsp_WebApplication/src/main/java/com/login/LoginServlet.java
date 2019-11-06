@@ -1,4 +1,4 @@
-package com.servlet;
+package com.login;
 
 import java.io.IOException;
 
@@ -22,7 +22,6 @@ public class LoginServlet extends HttpServlet {
 	 */
 	public LoginServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -47,10 +46,8 @@ public class LoginServlet extends HttpServlet {
 		request.setAttribute("password", request.getParameter("password"));
 
 		if(isUserValid){
-			/*request.setAttribute("todos",todoService.getTodoList());
-			request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);*/
 			request.getSession().setAttribute("name", name);
-			response.sendRedirect("/todo.do");
+			response.sendRedirect("/list-todo.do");
 		}else {
 			request.setAttribute("errorMessage", "Invalid Credentials!");
 			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);

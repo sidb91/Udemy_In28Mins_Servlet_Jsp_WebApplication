@@ -12,8 +12,8 @@ import com.todo.TodoService;
 /**
  * Servlet implementation class TodoServlet
  */
-@WebServlet(description = "To handle todo requests and responses in application", urlPatterns = { "/todo.do" })
-public class TodoServlet extends HttpServlet {
+@WebServlet(description = "To handle list todo requests and responses in application", urlPatterns = { "/list-todo.do" })
+public class ListTodoServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -22,9 +22,8 @@ public class TodoServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public TodoServlet() {
+	public ListTodoServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -32,13 +31,7 @@ public class TodoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("todos",todoService.getTodoList());
-		request.getRequestDispatcher("/WEB-INF/views/todo.jsp").forward(request, response);
-	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String newTodo = request.getParameter("todo");
-		todoService.addTodo(new Todo(newTodo));
-		response.sendRedirect("/todo.do");
+		request.getRequestDispatcher("/WEB-INF/views/list-todo.jsp").forward(request, response);
 	}
 
 }

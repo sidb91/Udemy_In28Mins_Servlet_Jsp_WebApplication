@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.udemy.in28Minutes</groupId>
-	<artifactId>Udemy_In28Mins_Servlet_Jsp_WebApplication</artifactId>
+	<artifactId>Servlet_JSP_Web_App</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>Servlet_Jsp_In_28Minutes_WebApplication</name>
+	<name>Servlet_JSP_Web_App</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -32,15 +32,21 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.2.3</version>
-		</dependency>
-
-		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>3.3.6</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>1.9.1</version>
 		</dependency>
 
 	</dependencies>

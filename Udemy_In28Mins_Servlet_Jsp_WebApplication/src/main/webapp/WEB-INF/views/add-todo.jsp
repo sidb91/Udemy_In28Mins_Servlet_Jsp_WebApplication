@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login Page</title>
-<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<title>Todos</title>
+<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+	rel="stylesheet">
 
 <style>
 .footer {
@@ -17,28 +18,30 @@
 </head>
 
 <body>
+
 	<nav class="navbar navbar-default">
+
 		<a href="/" class="navbar-brand">Brand</a>
+
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="#">Home</a></li>
-			<li><a href="/todo.do">Todos</a></li>
+			<li><a href="/list-todos.do">Todos</a></li>
 			<li><a href="http://www.in28minutes.com">In28Minutes</a></li>
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="/login.do">Login</a></li>
+			<li><a href="/logout.do">Logout</a></li>
 		</ul>
+
 	</nav>
 
 	<div class="container">
-		<div id="formContainer">
-			<form action="/login.do" method="post">
-				<label for="name">Username : <input type="text" id="name" name="name"/></label><br/>
-				<label for="password">Password : <input type="password" id="password" name="password"/></label>
-				<input type="submit" value="Login"/>
-				<div style="color:red;"><p>${errorMessage}</p></div>
-			</form>
-		</div>
+		Your New Action Item:
+		<form method="POST" action="/add-todo.do">
+			Description: <input name="todo" type="text" />
+			Category: <input name="category" type="text" />
+			<input name="add" type="submit" value="ADD" />
+		</form>
 	</div>
 
 	<footer class="footer">

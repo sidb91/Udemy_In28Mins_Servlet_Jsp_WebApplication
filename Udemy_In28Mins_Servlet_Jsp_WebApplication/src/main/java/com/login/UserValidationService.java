@@ -1,4 +1,4 @@
-package com.servlet;
+package com.login;
 
 public class UserValidationService {
 	

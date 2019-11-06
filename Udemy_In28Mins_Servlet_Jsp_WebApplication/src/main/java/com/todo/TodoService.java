@@ -7,11 +7,6 @@ public class TodoService {
 
 	private static List<Todo> todos = new ArrayList<Todo>();
 	
-	static {
-		todos.add(new Todo("Web Application"));
-		todos.add(new Todo("Spring MVC"));
-	}
-	
 	public List<Todo> getTodoList() {
 		return todos;
 	}
